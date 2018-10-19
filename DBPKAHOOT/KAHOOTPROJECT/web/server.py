@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.secret_key = 'Security Key'  # SECURITY KEY
 
 
-# PAGINA DE INICIO
+# PAGINA DE INICIOOOO
 @app.route('/')
 def index():
     return render_template('index.html')
