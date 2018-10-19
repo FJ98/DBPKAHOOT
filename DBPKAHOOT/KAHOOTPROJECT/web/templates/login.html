@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script src="/static/js/libs/bootstrap.min.js" ></script>
+
+</head>
+<body>
+    <form action="/do_login" method="post">
+        <table align="center">
+            <tr>
+                <td>
+                    MyChat
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">@</span>
+  </div>
+  <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="password" name="password" id="password"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Loginnn"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
