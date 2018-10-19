@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, Response, redirect, url_for
+from flask import Flask, render_template, request, session, Response
 from database import connector
 from model import entities
 import json
@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.secret_key = 'Security Key'  # SECURITY KEY
 
 
-# PAGINA DE INICIOOOO
+# PAGINA DE INICIO
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -23,50 +23,26 @@ def chat():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-
     if 'username' in session:
         return render_template('nickname.html')
     else:
         return render_template('login.html')
-# @app.route('/login') <- ORTEIP
-# def login():
-#     return render_template('login.html')
-# @app.route('/login') SATSEIF
-# def login():
-#    if 'logged_user' not in session:
-#        return render_template('login.html')
-#    return render_template("nickname.html")
 
 
 @app.route('/do_login', methods=['POST'])
 def do_login():
     # Ask for username and password in case they are not in session
-    if 'username' not in session:
-        username = request.form['username']
-        password = request.form['password']
-        # Check if username and password are in database
-        db_session = db.getSession(engine)
-        users = db_session.query(entities.User)  # Nos permite obtener todos los ususarios que estan en nuestra bdd
-        # Fin
-        for user in users:
-            if user.username == username and user.password == password:
-                session['logged_user'] = username
-                session['logged_user_id'] = user.id
-                return render_template("nickname.html")
-        return render_template("pin.html")
-    else:
-        return render_template("nickname.html")
-# @app.route('/do_login', methods = ['POST'])
-# def do_login():
-#     username = request.form['username']
-#     password = request.form['password']
-#     db_session = db.getSession(engine)
-#     users = db_session.query(entities.User)
-#     for user in users:
-#         if user.username == username and user.password == password:
-#             session['logged_user'] = username
-#             return render_template("nickname.html")
-#     return render_template("pin.html")
+    return render_template("createSala.html")
+
+
+@app.route('/sala', methods=['GET'])
+def sala():
+    return render_template("sala.html")
+
+
+@app.route('/pin', methods=['GET'])
+def pin():
+    return render_template("pin.html")
 
 
 @app.route('/do_logout')  # creo que va login.html pero pensandolo bien creo que no y creo que es logout no do_logout aunque deberia existir un logout y un do_logout aunque no se
@@ -94,7 +70,7 @@ def do_register():
     db_session.add(user)
     db_session.commit()
 
-    return render_template('nickname.html')
+    return render_template('login.html')
     # return "TOD OK"
 
 
