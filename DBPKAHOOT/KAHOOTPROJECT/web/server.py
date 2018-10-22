@@ -16,9 +16,6 @@ def index():
 # FIN
 
 
-@app.route('/chat')
-def chat():
-    return render_template('nickname.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -33,6 +30,12 @@ def login():
 def do_login():
     # Ask for username and password in case they are not in session
     return render_template("createSala.html")
+
+
+@app.route('/verify_pin',methods=['POST'])
+def verify_pin():
+    # verificar si el pin está en la base de datos
+    return render_template("sala.html")
 
 
 @app.route('/sala', methods=['GET'])

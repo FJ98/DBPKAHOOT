@@ -7,14 +7,24 @@
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
 </head>
 <body>
-    <form action="/pin" method="get">
-    <table align="center" cellpadding="300px">
-            <tr>
-                <td>
-                    PIN
-                </td>
-            </tr>
+<form action="/verify_pin" method="POST">
+    <table>
+        <tr>
+            <td>
+                <label>PIN</label>
+            </td>
+            <td>
+                <input type="text" name="pin"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="ENTER"/>
+            </td>
+        </tr>
     </table>
+</form>
 
 </body>
 </html>
