@@ -2,29 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Kahoot</title>
-    <script src="/static/js/libs/bootstrap.min.js" ></script>
+    <title>I ask</title>
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script src="/static/js/libs/bootstrap.min.js" ></script>
+
 </head>
 <body>
-<form action="/verify_pin" method="POST">
-    <table>
+<form action="/do_pin" method="post">
+    <table align="center">
         <tr>
+            <td align="center">I ask</td>
+        </tr>
+        <tr >
             <td>
-                <label>PIN</label>
-            </td>
-            <td>
-                <input type="text" name="pin"/>
+                <div class="input-group mb-3">
+                  <input id="pin" name="pin" type="text" class="form-control" placeholder="PIN" aria-label="PIN" aria-describedby="basic-addon1"  >
+                </div>
+
             </td>
         </tr>
-
         <tr>
-            <td colspan="2">
-                <input type="submit" value="ENTER"/>
-            </td>
+            <td align="center"><input  type="submit" value="ENTER"/></td>
         </tr>
     </table>
 </form>
-
 </body>
 </html>
