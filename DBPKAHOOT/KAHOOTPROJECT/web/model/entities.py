@@ -12,6 +12,13 @@ class User(connector.Manager.Base):
     password = Column(String(12))
     username = Column(String(12))
 
+class Sala(connector.Manager.Base):
+    __tablename__ = 'salas'
+    id = Column(Integer, Sequence('sala_id_seq'), primary_key=True)
+    pin = Column(String(10))
+    name = Column(String(20))
+
+
 
 class Message(connector.Manager.Base):
     __tablename__ = 'messages'

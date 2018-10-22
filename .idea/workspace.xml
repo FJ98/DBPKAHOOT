@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1a8a8a4-031a-48ab-88b4-0bfb35c74802" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/DBPKAHOOT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DBPKAHOOT.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="f1a8a8a4-031a-48ab-88b4-0bfb35c74802" name="Default Changelist" comment="HTML de ingreso de pin">
+      <change afterPath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/fail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/midb.db" beforeDir="false" afterPath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/midb.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/model/entities.py" beforeDir="false" afterPath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/model/entities.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/createSala.html" beforeDir="false" afterPath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/createSala.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/pin.html" beforeDir="false" afterPath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/pin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/createSala.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,10 +58,37 @@
       <file leaf-file-name="server.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="50">
+              <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/fail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="connector.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/database/connector.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="17" selection-start-column="17" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="entities.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/model/entities.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
               <folding>
-                <element signature="e#0#68#0" expanded="true" />
+                <element signature="e#0#78#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,8 +97,8 @@
       <file leaf-file-name="pin.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/pin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+            <state relative-caret-position="600">
+              <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -88,20 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createSala.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/createSala.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="sala.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/sala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            <state relative-caret-position="75">
+              <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -109,13 +124,28 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+            <state relative-caret-position="175">
+              <caret line="19" column="38" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>SALA</find>
+      <find>SAL</find>
+      <find>createsala</find>
+      <find>do_re</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -126,9 +156,11 @@
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/login.html" />
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/nickname.html" />
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/sala.html" />
-        <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/pin.html" />
-        <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/index.html" />
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/createSala.html" />
+        <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/index.html" />
+        <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/pin.html" />
+        <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/fail.html" />
+        <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/model/entities.py" />
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/server.py" />
       </list>
     </option>
@@ -169,6 +201,30 @@
               <item name="KAHOOTPROJECT" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="DBPKAHOOT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DBPKAHOOT" type="462c0819:PsiDirectoryNode" />
+              <item name="DBPKAHOOT" type="462c0819:PsiDirectoryNode" />
+              <item name="KAHOOTPROJECT" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DBPKAHOOT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DBPKAHOOT" type="462c0819:PsiDirectoryNode" />
+              <item name="DBPKAHOOT" type="462c0819:PsiDirectoryNode" />
+              <item name="KAHOOTPROJECT" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DBPKAHOOT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DBPKAHOOT" type="462c0819:PsiDirectoryNode" />
+              <item name="DBPKAHOOT" type="462c0819:PsiDirectoryNode" />
+              <item name="KAHOOTPROJECT" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -177,7 +233,8 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="last_opened_file_path" value="$USER_HOME$/cs2b01" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -227,16 +284,25 @@
       <option name="presentableId" value="Default" />
       <updated>1540224250760</updated>
     </task>
+    <task id="LOCAL-00001" summary="HTML de ingreso de pin">
+      <created>1540240169506</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1540240169506</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.21449487" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21449487" />
       <window_info anchor="bottom" id="TODO" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.32750398" />
-      <window_info anchor="bottom" id="Version Control" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50073206" side_tool="true" weight="0.32750398" />
+      <window_info active="true" anchor="bottom" id="Run" order="4" sideWeight="0.49926794" visible="true" weight="0.32750398" />
+      <window_info anchor="bottom" id="Version Control" order="1" weight="0.3290938" />
       <window_info anchor="bottom" id="Python Console" order="0" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="9" />
@@ -273,14 +339,15 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="HTML de ingreso de pin" />
+    <option name="LAST_COMMIT_MESSAGE" value="HTML de ingreso de pin" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/server.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="925">
           <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#68#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -337,9 +404,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
           <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#68#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -409,24 +473,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/createSala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/fail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/database/connector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+        <state relative-caret-position="175">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/model/entities.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#78#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/sala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/createSala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        <state relative-caret-position="75">
+          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -439,18 +527,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/pin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        <state relative-caret-position="600">
+          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#0#68#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="50">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
         </state>
       </provider>
     </entry>

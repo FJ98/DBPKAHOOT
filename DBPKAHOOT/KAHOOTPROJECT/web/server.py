@@ -16,32 +16,26 @@ def index():
 # FIN
 
 
-
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if 'username' in session:
-        return render_template('nickname.html')
-    else:
-        return render_template('login.html')
-
-
-@app.route('/do_login', methods=['POST'])
-def do_login():
-    # Ask for username and password in case they are not in session
-    return render_template("createSala.html")
-
-
-@app.route('/verify_pin',methods=['POST'])
-def verify_pin():
-    # verificar si el pin está en la base de datos
-    return render_template("sala.html")
-
-
 @app.route('/sala', methods=['GET'])
 def sala():
     return render_template("sala.html")
 
+@app.route('/create_sala', methods=['POST','GET'])
+def do_register():
+    name = request.form['name']
+    fullname = request.form['fullname']
+    password = request.form['password']
+    username = request.form['username']
+    print(name, fullname, password, username)
+
+    user = entities.User(username = username,
+                         name = name,
+                         fullname = fullname,
+                         password = password)
+    session = db.getSession(engine)
+    session.add(user)
+    session.commit()
+    return "TODO OK"
 
 @app.route('/pin', methods=['GET'])
 def pin():
@@ -54,30 +48,44 @@ def do_logout():
     return render_template('index.html')
 
 
-@app.route('/register', methods=['GET'])
-def register():
-    return render_template('register.html')
+#ruta para verificar si existe el pin en la base de datos
+@app.route('/do_pin',methods=['POST'])
+def do_pin():
+    pin = request.form['pin']
 
-
-@app.route('/do_register', methods=['POST'])
-def do_register():
-    name = request.form['name']
-    fullname = request.form['fullname']
-    password = request.form['password']
-    username = request.form['username']
-
-    print(name, fullname, password, username)
-
-    user = entities.User(username=username, name=name, fullname=fullname, password=password)
     db_session = db.getSession(engine)
-    db_session.add(user)
-    db_session.commit()
+    salas = db_session.query(entities.Sala)
 
-    return render_template('login.html')
-    # return "TOD OK"
+    for sala in salas:
+        if sala.pin == pin:
+            session['pin'] = pin
+            return render_template('sala.html')
+
+    return render_template('fail.html')
+
+
 
 
 # CRUD FOR EACH CLASS FROM ENTITIES.PY
+
+#CRUD PARA SALAS
+#OBTENER TODAS LAS SALAS
+@app.route('/salas',methods=['GET'])
+def salas():
+    db_session = db.getSession(engine)
+    salas = db_session.query(entities.Sala)  # Nos permite obtener todas las salas que estan en nuestra bdd
+    data = []
+    for sala in salas:
+        data.append(sala)
+
+    return Response(json.dumps(data,
+                               cls=connector.AlchemyEncoder),
+                    mimetype='application/json')
+
+
+
+#CREAR SALA
+
 # CRUD USERS
 # CREATE USER METHOD CURRENT
 @app.route('/current_user', methods=['GET'])
