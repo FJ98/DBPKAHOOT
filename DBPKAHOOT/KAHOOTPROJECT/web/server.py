@@ -25,9 +25,9 @@ def sala():
 def create_sala():
     name = request.form['name']
     pin = request.form['pin']
-    print(nickname, pin)
+    print(name, pin)
 
-    sala = entities.Sala(name=name,pin=pin)
+    sala = entities.Sala(name=name, pin=pin)
     db_session = db.getSession(engine)
     db_session.add(sala)
     db_session.commit()
@@ -87,9 +87,9 @@ def do_register():
     pin = request.form['pin']
     name = request.form['name']
     sala = entities.Sala(pin=pin, name=name)
-    session = db.getSession(engine)
-    session.add(sala)
-    session.commit()
+    db_session = db.getSession(engine)
+    db_session.add(sala)
+    db_session.commit()
     return "TODO OK"
 
 
