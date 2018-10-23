@@ -58,7 +58,7 @@ def do_pin():
 
     for sala in salas:
         if sala.pin == pin:
-            session['pin'] = pin
+            session['name'] = pin
             return render_template('sala.html')
 
     return render_template('fail.html')
