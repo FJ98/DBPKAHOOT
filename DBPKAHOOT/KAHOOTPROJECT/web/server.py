@@ -37,15 +37,11 @@ def do_register():
     session.commit()
     return "TODO OK"
 
+
 @app.route('/pin', methods=['GET'])
 def pin():
     return render_template("pin.html")
 
-
-@app.route('/do_logout')  # creo que va login.html pero pensandolo bien creo que no y creo que es logout no do_logout aunque deberia existir un logout y un do_logout aunque no se
-def do_logout():
-    session.clear()
-    return render_template('index.html')
 
 
 #ruta para verificar si existe el pin en la base de datos
@@ -58,7 +54,7 @@ def do_pin():
 
     for sala in salas:
         if sala.pin == pin:
-            session['name'] = pin
+            session['pin'] = pin
             return render_template('sala.html')
 
     return render_template('fail.html')
@@ -84,7 +80,26 @@ def salas():
 
 
 
-#CREAR SALA
+#DELETE SALA
+@app.route('/salas/<id>', methods=['DELETE'])
+def delete_user(id):
+    db_session = db.getSession(engine)
+    salas = db_session.query(entities.Sala).filter(entities.Sala.id == id)
+    for sala in salas:
+        db_session.delete(sala)
+    db_session.commit()
+    return "sala deleted"
+
+@app.route('/salas', methods = ['POST'])
+def do_register():
+    pin = request.form['pin']
+    name = request.form['name']
+    sala = entities.Sala(pin = pin, name=name)
+    session = db.getSession(engine)
+    session.add(sala)
+    session.commit()
+    return "TODO OK"
+
 
 # CRUD USERS
 # CREATE USER METHOD CURRENT
@@ -95,6 +110,8 @@ def current_user():
     return Response(json.dumps(user,
                                cls=connector.AlchemyEncoder),
                     mimetype='application/json')
+
+
 # FIN
 
 
