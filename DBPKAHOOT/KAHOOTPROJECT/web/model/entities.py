@@ -6,10 +6,7 @@ from database import connector
 class User(connector.Manager.Base):
     __tablename__ = 'users'
     id = Column(Integer, Sequence('user_id_seq'), primary_key=True)
-    name = Column(String(50))
-    fullname = Column(String(50))
-    password = Column(String(12))
-    username = Column(String(12))
+    nickname = Column(String(12))
 
 class Sala(connector.Manager.Base):
     __tablename__ = 'salones'

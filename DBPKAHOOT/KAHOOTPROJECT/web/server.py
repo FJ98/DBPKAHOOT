@@ -20,21 +20,17 @@ def index():
 def sala():
     return render_template("sala.html")
 
-@app.route('/create_sala', methods=['POST','GET'])
-def do_register():
-    name = request.form['name']
-    fullname = request.form['fullname']
-    password = request.form['password']
-    username = request.form['username']
-    print(name, fullname, password, username)
 
-    user = entities.User(username = username,
-                         name = name,
-                         fullname = fullname,
-                         password = password)
-    session = db.getSession(engine)
-    session.add(user)
-    session.commit()
+@app.route('/create_sala', methods=['POST'])
+def create_sala():
+    name = request.form['name']
+    pin = request.form['pin']
+    print(nickname, pin)
+
+    sala = entities.Sala(name=name,pin=pin)
+    db_session = db.getSession(engine)
+    db_session.add(sala)
+    db_session.commit()
     return "TODO OK"
 
 
@@ -43,9 +39,8 @@ def pin():
     return render_template("pin.html")
 
 
-
-#ruta para verificar si existe el pin en la base de datos
-@app.route('/do_pin',methods=['POST'])
+# Ruta para verificar si existe el pin en la base de datos
+@app.route('/do_pin', methods=['POST'])
 def do_pin():
     pin = request.form['pin']
 
@@ -60,13 +55,10 @@ def do_pin():
     return render_template('fail.html')
 
 
-
-
 # CRUD FOR EACH CLASS FROM ENTITIES.PY
-
-#CRUD PARA SALAS
-#OBTENER TODAS LAS SALAS
-@app.route('/salas',methods=['GET'])
+# CRUD PARA SALAS
+# OBTENER TODAS LAS SALAS
+@app.route('/salas', methods=['GET'])
 def salas():
     db_session = db.getSession(engine)
     salas = db_session.query(entities.Sala)  # Nos permite obtener todas las salas que estan en nuestra bdd
@@ -79,8 +71,7 @@ def salas():
                     mimetype='application/json')
 
 
-
-#DELETE SALA
+# DELETE SALA
 @app.route('/salas/<id>', methods=['DELETE'])
 def delete_user(id):
     db_session = db.getSession(engine)
@@ -90,11 +81,12 @@ def delete_user(id):
     db_session.commit()
     return "sala deleted"
 
-@app.route('/salas', methods = ['POST'])
+
+@app.route('/salas', methods=['POST'])
 def do_register():
     pin = request.form['pin']
     name = request.form['name']
-    sala = entities.Sala(pin = pin, name=name)
+    sala = entities.Sala(pin=pin, name=name)
     session = db.getSession(engine)
     session.add(sala)
     session.commit()
@@ -110,8 +102,6 @@ def current_user():
     return Response(json.dumps(user,
                                cls=connector.AlchemyEncoder),
                     mimetype='application/json')
-
-
 # FIN
 
 
@@ -151,10 +141,7 @@ def update_user(id):
     db_session = db.getSession(engine)
     users = db_session.query(entities.User).filter(entities.User.id == id)  # Nos permite obtener todos los ususarios que estan en nuestra bdd
     for user in users:
-        user.name = request.form['name']
-        user.fullname = request.form['fullname']
-        user.password = request.form['password']
-        user.username = request.form['username']
+        user.nickname = request.form['nickname']
         db_session.add(user)
     db_session.commit()  # Es para cerrar la orden y decirle a la bdd que lo haga
     return "User updated!"
@@ -241,10 +228,7 @@ def clean_users():
     db_session = db.getSession(engine)
     users = db_session.query(entities.User)  # Nos permite obtener todos los ususarios que estan en nuestra bdd
     for user in users:
-        user.name = request.form['name']
-        user.fullname = request.form['fullname']
-        user.password = request.form['password']
-        user.username = request.form['username']
+        user.nickname = request.form['nickname']
         db_session.add(user)
     db_session.commit()  # Es para cerrar la orden y decirle a la bdd que lo haga
     return "Todos los usuarios borrados"
@@ -257,24 +241,6 @@ def clean_users():
 #          db_session.delete(user)
 #          db_session.commit()
 # return "Todos los usuarios eliminados"
-
-
-# CUANTAS LETRAS TIENE MI NOMBRE
-@app.route('/cuantasletras/<nombre>')
-def cuantas_letras(nombre):
-    return str(len(nombre))
-# FIN
-
-
-# SUMAR UN NUMERO DE ACUERDO A LA SESION DE CADA USUARIO
-@app.route('/sumar/<numero>')
-def sumar(numero):
-    if 'suma' not in session:
-        session['suma'] = '0'
-    session['suma'] = int(session['suma'])+int(numero)
-
-    return str(session['suma'])
-# FIN
 
 
 if __name__ == '__main__':
