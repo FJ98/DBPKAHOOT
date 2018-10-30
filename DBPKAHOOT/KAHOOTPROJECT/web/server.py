@@ -34,6 +34,7 @@ def create_sala():
     return "TODO OK"
 
 
+
 @app.route('/pin', methods=['GET'])
 def pin():
     return render_template("pin.html")
@@ -46,11 +47,13 @@ def do_pin():
 
     db_session = db.getSession(engine)
     salas = db_session.query(entities.Sala)
+    if session['pin'] == pin :
+        return render_template('sala_invitados.html')
 
     for sala in salas:
         if sala.pin == pin:
             session['pin'] = pin
-            return render_template('sala.html')
+            return render_template('sala_invitados.html')
 
     return render_template('fail.html')
 
@@ -73,7 +76,7 @@ def salas():
 
 # DELETE SALA
 @app.route('/salas/<id>', methods=['DELETE'])
-def delete_user(id):
+def delete_sala(id):
     db_session = db.getSession(engine)
     salas = db_session.query(entities.Sala).filter(entities.Sala.id == id)
     for sala in salas:
@@ -222,16 +225,6 @@ def delete_message(id):
 # FIN
 
 
-# LA VERDAD NO SE QUE ES CLEAN USERS TODAVIA, LO DEDUZCO PERO NO LO SE
-@app.route('/clean_users', methods=['GET'])
-def clean_users():
-    db_session = db.getSession(engine)
-    users = db_session.query(entities.User)  # Nos permite obtener todos los ususarios que estan en nuestra bdd
-    for user in users:
-        user.nickname = request.form['nickname']
-        db_session.add(user)
-    db_session.commit()  # Es para cerrar la orden y decirle a la bdd que lo haga
-    return "Todos los usuarios borrados"
 # FIN
 # @app.route('/clean_users', methods=['GET'])
 #  def clean_users():
@@ -245,4 +238,4 @@ def clean_users():
 
 if __name__ == '__main__':
     app.secret_key = ".."
-    app.run(port=8080, threaded=True, host=('localhost'))
+    app.run(port=8080, threaded=True,debug=True, host=('localhost'))
