@@ -21,12 +21,16 @@ def index():
 def sala():
     return render_template("sala.html")
 
-
+@app.route('/name_sala')
+def name_sala():
+    return render_template("name_sala.html")
 
 
 
 @app.route('/pin', methods=['GET'])
 def pin():
+    if 'pin' in session :
+        return render_template('sala_invitados.html')
     return render_template("pin.html")
 
 
@@ -37,8 +41,6 @@ def do_pin():
 
     db_session = db.getSession(engine)
     salas = db_session.query(entities.Sala)
-    if 'pin' in session :
-        return render_template('sala_invitados.html')
 
     for sala in salas:
         if sala.pin == pin:
@@ -54,11 +56,11 @@ def do_pin():
 @app.route('/create_sala', methods=['POST'])
 def create_sala():
     name = request.form['name']
-    pin = request.form['pin']
-    print(name, pin)
-
-    sala = entities.Sala(name=name, pin=pin)
     db_session = db.getSession(engine)
+    numero =  db_session.query(entities.Contador).first()
+    pin = numero.number
+    sala = entities.Sala(name=name, pin=pin)
+
     db_session.add(sala)
     db_session.commit()
     return "TODO OK"

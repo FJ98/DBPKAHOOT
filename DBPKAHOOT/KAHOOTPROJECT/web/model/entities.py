@@ -24,3 +24,8 @@ class Message(connector.Manager.Base):
     user_from_id = Column(Integer, ForeignKey('users.id'))
     user_from = relationship(User, foreign_keys=[user_from_id])
     sala_to = relationship(Sala, foreign_keys=[sala_to_id])
+
+class Contador(connector.Manager.Base):
+    __tablename__ = 'contador'
+    id = Column(Integer, primary_key=True)
+    number = Column(Integer)
