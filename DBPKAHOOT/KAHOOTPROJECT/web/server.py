@@ -16,22 +16,12 @@ def index():
 # FIN
 
 
+
 @app.route('/sala', methods=['GET'])
 def sala():
     return render_template("sala.html")
 
 
-@app.route('/create_sala', methods=['POST'])
-def create_sala():
-    name = request.form['name']
-    pin = request.form['pin']
-    print(name, pin)
-
-    sala = entities.Sala(name=name, pin=pin)
-    db_session = db.getSession(engine)
-    db_session.add(sala)
-    db_session.commit()
-    return "TODO OK"
 
 
 
@@ -56,10 +46,23 @@ def do_pin():
             return render_template('sala_invitados.html')
 
     return render_template('fail.html')
+# FIN
 
 
-# CRUD FOR EACH CLASS FROM ENTITIES.PY
+# CRUD PARA CADA CLASE DE ENTITIES.PY
 # CRUD PARA SALAS
+@app.route('/create_sala', methods=['POST'])
+def create_sala():
+    name = request.form['name']
+    pin = request.form['pin']
+    print(name, pin)
+
+    sala = entities.Sala(name=name, pin=pin)
+    db_session = db.getSession(engine)
+    db_session.add(sala)
+    db_session.commit()
+    return "TODO OK"
+
 # OBTENER TODAS LAS SALAS
 @app.route('/current_sala', methods=['GET'])
 def current_sala():
@@ -71,7 +74,7 @@ def current_sala():
 
 
 @app.route('/salas', methods=['GET'])
-def salas():
+def read_sala():
     db_session = db.getSession(engine)
     salas = db_session.query(entities.Sala)  # Nos permite obtener todas las salas que estan en nuestra bdd
     data = []
@@ -119,7 +122,7 @@ def current_user():
 
 # CREATE USER METHOD
 @app.route('/users', methods=['GET'])
-def users():
+def create_user():
     db_session = db.getSession(engine)
     users = db_session.query(entities.User)  # Nos permite obtener todos los ususarios que estan en nuestra bdd
     data = []
@@ -134,7 +137,7 @@ def users():
 
 # READ USER METHOD
 @app.route('/users/<id>', methods=['GET'])
-def get_user(id):
+def read_user(id):
     db_session = db.getSession(engine)
     users = db_session.query(entities.User).filter(entities.User.id == id)  # Nos permite obtener todos los ususarios que estan en nuestra bdd
     data = []
@@ -176,7 +179,7 @@ def delete_user(id):
 # CRUD MESSAGE
 # CREATE MESSAGE METHOD
 @app.route('/messages')
-def messages():
+def create_message():
     db_session = db.getSession(engine)
     messages = db_session.query(entities.Message)
     data = []
@@ -191,7 +194,7 @@ def messages():
 
 # READ MESSAGE METHOD
 @app.route('/messages/<id>', methods=['GET'])
-def get_message(id):
+def read_message(id):
     db_session = db.getSession(engine)
     messages = db_session.query(entities.Message).filter(entities.Message.id == id)
     data = []
@@ -247,4 +250,4 @@ def delete_message(id):
 
 if __name__ == '__main__':
     app.secret_key = ".."
-    app.run(port=8080, threaded=True,debug=True, host=('localhost'))
+    app.run(port=8080, threaded=True, debug=True, host=('localhost'))
