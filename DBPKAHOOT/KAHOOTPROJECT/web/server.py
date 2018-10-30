@@ -47,7 +47,7 @@ def do_pin():
 
     db_session = db.getSession(engine)
     salas = db_session.query(entities.Sala)
-    if session['pin'] == pin :
+    if 'pin' in session :
         return render_template('sala_invitados.html')
 
     for sala in salas:
@@ -61,6 +61,15 @@ def do_pin():
 # CRUD FOR EACH CLASS FROM ENTITIES.PY
 # CRUD PARA SALAS
 # OBTENER TODAS LAS SALAS
+@app.route('/current_sala', methods=['GET'])
+def current_sala():
+    db_session = db.getSession(engine)
+    sala = db_session.query(entities.Sala).filter(entities.Sala.pin == session['pin']).first()  # Nos permite obtener todos los usuarios que estan en nuestra bdd
+    return Response(json.dumps(sala,
+                               cls=connector.AlchemyEncoder),
+                    mimetype='application/json')
+
+
 @app.route('/salas', methods=['GET'])
 def salas():
     db_session = db.getSession(engine)
