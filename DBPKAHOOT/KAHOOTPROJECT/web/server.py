@@ -16,7 +16,8 @@ def index():
     return render_template('index.html')
 # FIN
 
-@app.route('/sala_logout',methods=['GET'])
+
+@app.route('/sala_logout', methods=['GET'])
 def sala_logout():
     session.clear()
     return render_template('index.html')
@@ -29,6 +30,17 @@ def pin():
     return render_template("pin.html")
 
 
+# OBTENER LA SALA EN LA QUE ESTAS LOGEADO
+@app.route('/current_sala', methods=['GET'])
+def current_sala():
+    db_session = db.getSession(engine)
+    sala = db_session.query(entities.Sala).filter(entities.Sala.pin == session['pin']).first()  # Nos permite obtener todos los usuarios que estan en nuestra bdd
+    return Response(json.dumps(sala,
+                               cls=connector.AlchemyEncoder),
+                    mimetype='application/json')
+# FIN
+
+
 @app.route('/current_created_sala')
 def current_created_sala():
     db_session = db.getSession(engine)
@@ -37,6 +49,17 @@ def current_created_sala():
     return Response(json.dumps(sala,
                                cls=connector.AlchemyEncoder),
                     mimetype='application/json')
+
+
+# OBTENER LA SALA EN LA QUE ESTAS LOGEADO
+@app.route('/current_sala', methods=['GET'])
+def current_sala():
+    db_session = db.getSession(engine)
+    sala = db_session.query(entities.Sala).filter(entities.Sala.pin == session['pin']).first()  # Nos permite obtener todos los usuarios que estan en nuestra bdd
+    return Response(json.dumps(sala,
+                               cls=connector.AlchemyEncoder),
+                    mimetype='application/json')
+# FIN
 
 
 # Ruta para verificar si existe el pin en la base de datos
@@ -58,6 +81,7 @@ def do_pin():
 
 # CRUD PARA CADA CLASE DE ENTITIES.PY
 # CRUD PARA SALAS
+# CREATE SALA
 @app.route('/create_sala', methods=['POST'])
 def create_sala():
     name = request.form['name']
@@ -73,18 +97,10 @@ def create_sala():
         db_session.add(numero_)
         db_session.commit()
     return render_template('sala.html')
+# FIN
 
 
-# OBTENER TODAS LAS SALAS
-@app.route('/current_sala', methods=['GET'])
-def current_sala():
-    db_session = db.getSession(engine)
-    sala = db_session.query(entities.Sala).filter(entities.Sala.pin == session['pin']).first()  # Nos permite obtener todos los usuarios que estan en nuestra bdd
-    return Response(json.dumps(sala,
-                               cls=connector.AlchemyEncoder),
-                    mimetype='application/json')
-
-
+# READ SALA
 @app.route('/read_sala', methods=['GET'])
 def read_sala():
     db_session = db.getSession(engine)
@@ -96,12 +112,7 @@ def read_sala():
     return Response(json.dumps(data,
                                cls=connector.AlchemyEncoder),
                     mimetype='application/json')
-
-@app.route('/name_sala')
-def name_sala():
-    if 'created_sala_pin' in session:
-        return render_template('sala.html')
-    return render_template('name_sala.html')
+# FIN
 
 
 # DELETE SALA
@@ -113,6 +124,7 @@ def delete_sala(id):
         db_session.delete(sala)
     db_session.commit()
     return "sala deleted"
+# FIN
 
 
 @app.route('/salas', methods=['POST'])
@@ -190,11 +202,6 @@ def update_user(id):
     return "User updated!"
 # FIN
 
-@app.route('/disjoin_sala')
-def disjoin_sala():
-    session.clear()
-    return render_template('index.html')
-
 
 # DELETE USER METHOD
 @app.route('/users/<id>', methods=['DELETE'])
@@ -206,6 +213,21 @@ def delete_user(id):
     db_session.commit()  # Es para cerrar la orden y decirle a la bdd que lo haga
     return "User deleted!"
 # FIN
+# FIN
+
+
+# REDIRIGIR A PAGINAS
+@app.route('/name_sala')
+def name_sala():
+    if 'created_sala_pin' in session:
+        return render_template('sala.html')
+    return render_template('name_sala.html')
+
+
+@app.route('/disjoin_sala')
+def disjoin_sala():
+    session.clear()
+    return render_template('index.html')
 # FIN
 
 
