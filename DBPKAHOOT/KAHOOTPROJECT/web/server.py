@@ -12,7 +12,7 @@ app.secret_key = 'Security Key'  # SECURITY KEY
 cache = {}
 
 
-# PAGINA DE INICIO
+# PAGINAA DE INICIO
 @app.route('/')
 def index():
     return render_template('index.html')
