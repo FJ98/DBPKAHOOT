@@ -16,26 +16,10 @@ def index():
     return render_template('index.html')
 # FIN
 
-
-
-@app.route('/sala', methods=['GET'])
-def sala():
-    return render_template("sala.html")
-
-@app.route('/name_sala')
-def name_sala():
-    if 'created_sala_pin' in session:
-        return render_template('sala.html')
-    return render_template('name_sala.html')
-
 @app.route('/sala_logout',methods=['GET'])
 def sala_logout():
     session.clear()
     return render_template('index.html')
-
-
-
-
 
 
 @app.route('/pin', methods=['GET'])
@@ -43,6 +27,7 @@ def pin():
     if 'pin' in session :
         return render_template('sala_invitados.html')
     return render_template("pin.html")
+
 
 @app.route('/current_created_sala')
 def current_created_sala():
@@ -100,7 +85,7 @@ def current_sala():
                     mimetype='application/json')
 
 
-@app.route('/salas', methods=['GET'])
+@app.route('/read_sala', methods=['GET'])
 def read_sala():
     db_session = db.getSession(engine)
     salas = db_session.query(entities.Sala)  # Nos permite obtener todas las salas que estan en nuestra bdd
@@ -111,6 +96,12 @@ def read_sala():
     return Response(json.dumps(data,
                                cls=connector.AlchemyEncoder),
                     mimetype='application/json')
+
+@app.route('/name_sala')
+def name_sala():
+    if 'created_sala_pin' in session:
+        return render_template('sala.html')
+    return render_template('name_sala.html')
 
 
 # DELETE SALA
@@ -133,6 +124,7 @@ def do_register():
     db_session.add(sala)
     db_session.commit()
     return "TODO OK"
+
 
 @app.route('/contador', methods=['POST'])
 def set_contador():
