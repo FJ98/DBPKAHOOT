@@ -9,6 +9,8 @@ primo = 73939133
 app = Flask(__name__)
 app.secret_key = 'Security Key'  # SECURITY KEY
 
+cache = {}
+
 
 # PAGINA DE INICIO
 @app.route('/')
