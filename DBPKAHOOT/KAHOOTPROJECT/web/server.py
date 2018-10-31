@@ -4,6 +4,7 @@ from model import entities
 import json
 db = connector.Manager()
 engine = db.createEngine()
+primo = 73939133
 
 app = Flask(__name__)
 app.secret_key = 'Security Key'  # SECURITY KEY
@@ -23,7 +24,17 @@ def sala():
 
 @app.route('/name_sala')
 def name_sala():
-    return render_template("name_sala.html")
+    if 'created_sala_pin' in session:
+        return render_template('sala.html')
+    return render_template('name_sala.html')
+
+@app.route('/sala_logout',methods=['GET'])
+def sala_logout():
+    session.clear()
+    return render_template('index.html')
+
+
+
 
 
 
@@ -32,6 +43,15 @@ def pin():
     if 'pin' in session :
         return render_template('sala_invitados.html')
     return render_template("pin.html")
+
+@app.route('/current_created_sala')
+def current_created_sala():
+    db_session = db.getSession(engine)
+    sala = db_session.query(entities.Sala).filter(
+        entities.Sala.pin == session['created_sala_pin']).first()  # Nos permite obtener todos los usuarios que estan en nuestra bdd
+    return Response(json.dumps(sala,
+                               cls=connector.AlchemyEncoder),
+                    mimetype='application/json')
 
 
 # Ruta para verificar si existe el pin en la base de datos
@@ -58,12 +78,17 @@ def create_sala():
     name = request.form['name']
     db_session = db.getSession(engine)
     numero =  db_session.query(entities.Contador).first()
-    pin = numero.number
+    pin = ((numero.number)*primo)%90000000 + 10000000
     sala = entities.Sala(name=name, pin=pin)
-
     db_session.add(sala)
-    db_session.commit()
-    return "TODO OK"
+    session['created_sala_pin'] = pin
+    numeros = db_session.query(entities.Contador).filter(entities.Contador.id == 1)
+    for numero_ in numeros:
+        numero_.number = numero.number +1
+        db_session.add(numero_)
+        db_session.commit()
+    return render_template('sala.html')
+
 
 # OBTENER TODAS LAS SALAS
 @app.route('/current_sala', methods=['GET'])
@@ -106,6 +131,15 @@ def do_register():
     sala = entities.Sala(pin=pin, name=name)
     db_session = db.getSession(engine)
     db_session.add(sala)
+    db_session.commit()
+    return "TODO OK"
+
+@app.route('/contador', methods=['POST'])
+def set_contador():
+    number = request.form['number']
+    numero = entities.Contador(number=number)
+    db_session = db.getSession(engine)
+    db_session.add(numero)
     db_session.commit()
     return "TODO OK"
 
@@ -163,6 +197,11 @@ def update_user(id):
     db_session.commit()  # Es para cerrar la orden y decirle a la bdd que lo haga
     return "User updated!"
 # FIN
+
+@app.route('/disjoin_sala')
+def disjoin_sala():
+    session.clear()
+    return render_template('index.html')
 
 
 # DELETE USER METHOD
