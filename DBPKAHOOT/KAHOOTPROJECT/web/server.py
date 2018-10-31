@@ -12,7 +12,7 @@ app.secret_key = 'Security Key'  # SECURITY KEY
 cache = {}
 
 
-# PAGINAA DE INICIO
+# PAGINA DE INICIO
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -32,8 +32,6 @@ def pin():
     return render_template("pin.html")
 
 
-
-
 @app.route('/current_created_sala')
 def current_created_sala():
     db_session = db.getSession(engine)
@@ -42,17 +40,6 @@ def current_created_sala():
     return Response(json.dumps(sala,
                                cls=connector.AlchemyEncoder),
                     mimetype='application/json')
-
-
-# OBTENER LA SALA EN LA QUE ESTAS LOGEADO
-@app.route('/current_sala', methods=['GET'])
-def current_sala():
-    db_session = db.getSession(engine)
-    sala = db_session.query(entities.Sala).filter(entities.Sala.pin == session['pin']).first()  # Nos permite obtener todos los usuarios que estan en nuestra bdd
-    return Response(json.dumps(sala,
-                               cls=connector.AlchemyEncoder),
-                    mimetype='application/json')
-# FIN
 
 
 # Ruta para verificar si existe el pin en la base de datos
@@ -69,6 +56,26 @@ def do_pin():
             return render_template('sala_invitados.html')
 
     return render_template('fail.html')
+# FIN
+
+
+# SALA EN LA QUE ESTAS LOGEADO
+@app.route('/current_sala', methods=['GET'])
+def current_sala():
+    db_session = db.getSession(engine)
+    sala = db_session.query(entities.Sala).filter(entities.Sala.pin == session['pin']).first()  # Nos permite obtener todos los usuarios que estan en nuestra bdd
+    return Response(json.dumps(sala,
+                               cls=connector.AlchemyEncoder),
+                    mimetype='application/json')
+# FIN
+
+
+# USUARIO CON EL QUE ESTAS LOGEADO
+@app.route('/current_user', methods=['GET'])
+def current_user():
+    db_session = db.getSession(engine)
+    user = db_session.query(entities.User).filter(entities.User.id == session['logged_user_id']).first()  # Nos permite obtener todos los usuarios que estan en nuestra bdd
+    return Response(json.dumps(user, cls=connector.AlchemyEncoder), mimetype='application/json')
 # FIN
 
 
@@ -118,42 +125,11 @@ def delete_sala(id):
     db_session.commit()
     return "sala deleted"
 # FIN
-
-
-@app.route('/salas', methods=['POST'])
-def do_register():
-    pin = request.form['pin']
-    name = request.form['name']
-    sala = entities.Sala(pin=pin, name=name)
-    db_session = db.getSession(engine)
-    db_session.add(sala)
-    db_session.commit()
-    return "TODO OK"
-
-
-@app.route('/contador', methods=['POST'])
-def set_contador():
-    number = request.form['number']
-    numero = entities.Contador(number=number)
-    db_session = db.getSession(engine)
-    db_session.add(numero)
-    db_session.commit()
-    return "TODO OK"
-
-
-# CRUD USERS
-# CREATE USER METHOD CURRENT
-@app.route('/current_user', methods=['GET'])
-def current_user():
-    db_session = db.getSession(engine)
-    user = db_session.query(entities.User).filter(entities.User.id == session['logged_user_id']).first()  # Nos permite obtener todos los usuarios que estan en nuestra bdd
-    return Response(json.dumps(user,
-                               cls=connector.AlchemyEncoder),
-                    mimetype='application/json')
 # FIN
 
 
-# CREATE USER METHOD
+# CRUD PARA USERS
+# CREATE USER
 @app.route('/users', methods=['GET'])
 def create_user():
     db_session = db.getSession(engine)
@@ -168,7 +144,7 @@ def create_user():
 # FIN
 
 
-# READ USER METHOD
+# READ USER
 @app.route('/users/<id>', methods=['GET'])
 def read_user(id):
     db_session = db.getSession(engine)
@@ -183,7 +159,7 @@ def read_user(id):
 # FIN
 
 
-# UPDATE USER METHOD
+# UPDATE USER
 @app.route('/users/<id>', methods=['PUT'])
 def update_user(id):
     db_session = db.getSession(engine)
@@ -196,7 +172,7 @@ def update_user(id):
 # FIN
 
 
-# DELETE USER METHOD
+# DELETE USER
 @app.route('/users/<id>', methods=['DELETE'])
 def delete_user(id):
     db_session = db.getSession(engine)
@@ -209,23 +185,37 @@ def delete_user(id):
 # FIN
 
 
-# REDIRIGIR A PAGINAS
-@app.route('/name_sala')
-def name_sala():
-    if 'created_sala_pin' in session:
-        return render_template('sala.html')
-    return render_template('name_sala.html')
-
-
-@app.route('/disjoin_sala')
-def disjoin_sala():
-    session.clear()
-    return render_template('index.html')
+# CRUD PARA MESSAGE
+# PARA CHAT DINAMICO
+@app.route('/messages/<user_from>/<user_to>', methods = ['GET'])
+def get_message_by_users(user_from, user_to):
+    db_session = db.getSession(engine)
+    messages = db_session.query(entities.Message
+        ).filter(entities.Message.user_from_id == user_from
+        ).filter(entities.Message.user_to_id == user_to)
+    data = []
+    for message in messages:
+        data.append(message)
+    return Response(json.dumps(data,
+                               cls=connector.AlchemyEncoder),
+                    mimetype='application/json')
 # FIN
 
 
-# CRUD MESSAGE
-# CREATE MESSAGE METHOD
+# CREATE MESSAGE
+@app.route('/messages', methods=['POST'])
+def create_message():
+    c = request.get_json(silent=True)
+    db_session = db.getSession(engine)
+    sala_to = db_session.query(entities.Sala).filter(entities.Sala.pin == c['pin']).first()
+    message = entities.Message(content=c['content'], sala_to=sala_to)
+    db_session.add(message)
+    db_session.commit()
+    return "TODO OK"
+# FIN
+
+
+# READ MESSAGE
 @app.route('/messages')
 def read_message():
     db_session = db.getSession(engine)
@@ -240,7 +230,7 @@ def read_message():
 # FIN
 
 
-# READ MESSAGE METHOD
+# READ MESSAGE BY PIN ?
 @app.route('/messages/<sala_to>', methods = ['GET'])
 def get_message_by_pin(sala_to):
     db_session = db.getSession(engine)
@@ -254,23 +244,7 @@ def get_message_by_pin(sala_to):
 # FIN
 
 
-# UPDATE MESSAGE METHOD
-@app.route('/messages', methods = ['POST'])
-def create_message():
-    c = request.get_json(silent=True)
-    db_session = db.getSession(engine)
-    sala_to = db_session.query(entities.Sala
-            ).filter(entities.Sala.pin == c['pin']).first()
-
-    message = entities.Message(content= c['content'],
-                                sala_to = sala_to)
-    db_session.add(message)
-    db_session.commit()
-    return "TODO OK"
-# FIN
-
-
-# DELETE MESSAGE METHOD
+# DELETE MESSAGE
 @app.route('/messages/<id>', methods=['DELETE'])
 def delete_message(id):
     db_session = db.getSession(engine)
@@ -293,7 +267,26 @@ def delete_message(id):
 #          db_session.delete(user)
 #          db_session.commit()
 # return "Todos los usuarios eliminados"
+'''
+@app.route('/messages', methods = ['POST'])
+def create_message():
+    #c =  json.loads(request.form['values'])
+    c = request.get_json(silent=True)
+    db_session = db.getSession(engine)
+    user_from = db_session.query(entities.User
+            ).filter(entities.User.id == c['user_from_id']).first()
+    user_to = db_session.query(entities.User
+            ).filter(entities.User.id == c['user_to_id']).first()
 
+    message = entities.Message(content= c['content'],
+                                user_from = user_from,
+                                user_to = user_to,
+                                sent_on = datetime.datetime.utcnow()
+                          )
+    db_session.add(message)
+    db_session.commit()
+    return "TODO OK"
+'''
 
 if __name__ == '__main__':
     app.secret_key = ".."
