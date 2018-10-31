@@ -32,15 +32,6 @@ def pin():
     return render_template("pin.html")
 
 
-# OBTENER LA SALA EN LA QUE ESTAS LOGEADO
-@app.route('/current_sala', methods=['GET'])
-def current_sala():
-    db_session = db.getSession(engine)
-    sala = db_session.query(entities.Sala).filter(entities.Sala.pin == session['pin']).first()  # Nos permite obtener todos los usuarios que estan en nuestra bdd
-    return Response(json.dumps(sala,
-                               cls=connector.AlchemyEncoder),
-                    mimetype='application/json')
-# FIN
 
 
 @app.route('/current_created_sala')
@@ -236,7 +227,7 @@ def disjoin_sala():
 # CRUD MESSAGE
 # CREATE MESSAGE METHOD
 @app.route('/messages')
-def create_message():
+def read_message():
     db_session = db.getSession(engine)
     messages = db_session.query(entities.Message)
     data = []
@@ -250,13 +241,13 @@ def create_message():
 
 
 # READ MESSAGE METHOD
-@app.route('/messages/<id>', methods=['GET'])
-def read_message(id):
+@app.route('/messages/<sala_to>', methods = ['GET'])
+def get_message_by_pin(sala_to):
     db_session = db.getSession(engine)
-    messages = db_session.query(entities.Message).filter(entities.Message.id == id)
+    messages = db_session.query(entities.Message).filter(entities.Message.sala_to.pin == sala_to)
     data = []
-    for user in messages:
-        data.append(user)
+    for message in messages:
+        data.append(message)
     return Response(json.dumps(data,
                                cls=connector.AlchemyEncoder),
                     mimetype='application/json')
@@ -264,19 +255,18 @@ def read_message(id):
 
 
 # UPDATE MESSAGE METHOD
-@app.route('/messages/<id>', methods=['PUT'])
-def update_message(id):
+@app.route('/messages', methods = ['POST'])
+def create_message():
+    c = request.get_json(silent=True)
     db_session = db.getSession(engine)
-    messages = db_session.query(entities.Message).filter(entities.Message.id == id)
-    for message in messages:
-        message.content = request.form['content']
-        message.sent_on = request.form['sent_on']
-        message.user_from_id = request.form['user_from_id']
-        message.user_to_id = request.form['user_to_id']
-        message.user_from = request.form['user_from']
-        message.user_to = request.form['user_to']
-    db_session.commit()  # Es para cerrar la orden y decirle a la bdd que lo haga
-    return "Message updated"
+    sala_to = db_session.query(entities.Sala
+            ).filter(entities.Sala.pin == c['pin']).first()
+
+    message = entities.Message(content= c['content'],
+                                sala_to = sala_to)
+    db_session.add(message)
+    db_session.commit()
+    return "TODO OK"
 # FIN
 
 
