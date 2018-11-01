@@ -19,6 +19,24 @@ def index():
 # FIN
 
 
+@app.route('/register', methods=['GET'])
+def register():
+    return render_template('register.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if 'username' in session:
+        return render_template('success.html')
+    else:
+        return render_template('login.html')
+
+
+@app.route('/name_sala', methods=['GET', 'POST'])
+def name_sala():
+    return render_template('name_sala.html')
+
+
 @app.route('/sala_logout', methods=['GET'])
 def sala_logout():
     session.clear()
