@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1a8a8a4-031a-48ab-88b4-0bfb35c74802" name="Default Changelist" comment="cambios">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/server.py" afterDir="false" />
-    </list>
+    <list default="true" id="f1a8a8a4-031a-48ab-88b4-0bfb35c74802" name="Default Changelist" comment="cambios 2" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,8 +86,8 @@
       <file leaf-file-name="server.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="162" column="15" selection-start-line="162" selection-start-column="15" selection-end-line="162" selection-end-column="15" />
+            <state relative-caret-position="-2642">
+              <caret line="222" column="20" lean-forward="true" selection-start-line="222" selection-start-column="20" selection-end-line="222" selection-end-column="20" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
               </folding>
@@ -122,8 +119,8 @@
       <file leaf-file-name="sala.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/sala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+            <state relative-caret-position="124">
+              <caret line="50" column="16" lean-forward="true" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -131,8 +128,8 @@
       <file leaf-file-name="sala_invitados.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/static/js/sala_invitados.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1875">
-              <caret line="75" selection-start-line="75" selection-end-line="75" />
+            <state relative-caret-position="250">
+              <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -222,8 +219,8 @@
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/register.html" />
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/model/entities.py" />
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/name_sala.html" />
-        <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/sala.html" />
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/server.py" />
+        <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/sala.html" />
       </list>
     </option>
   </component>
@@ -351,17 +348,24 @@
       <option name="project" value="LOCAL" />
       <updated>1541180830518</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="cambios 2">
+      <created>1541182112599</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1541182112599</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16983895" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16983895" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3290938" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3290938" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32979852" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -387,7 +391,8 @@
     <MESSAGE value="error en msj" />
     <MESSAGE value="CPARA CHAT DINAMICO JUNTO CON CRUD DE MENSAJES" />
     <MESSAGE value="cambios" />
-    <option name="LAST_COMMIT_MESSAGE" value="cambios" />
+    <MESSAGE value="cambios 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="cambios 2" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/server.py">
@@ -578,6 +583,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/sala_invitados.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1550">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/sala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="50" column="16" lean-forward="true" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/static/js/sala.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1875">
@@ -587,29 +606,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/static/js/sala_invitados.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1875">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/sala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/sala_invitados.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1550">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        <state relative-caret-position="250">
+          <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="162" column="15" selection-start-line="162" selection-start-column="15" selection-end-line="162" selection-end-column="15" />
+        <state relative-caret-position="-2642">
+          <caret line="222" column="20" lean-forward="true" selection-start-line="222" selection-start-column="20" selection-end-line="222" selection-end-column="20" />
           <folding>
             <element signature="e#0#68#0" expanded="true" />
           </folding>
