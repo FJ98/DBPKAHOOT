@@ -6,14 +6,15 @@
 </head>
 <body>
 <div align="center">
-<form action="/login" method="POST">
+
+<form action="/do_register" method="POST">
     <table>
         <tr>
             <td>
                 <label>Username</label>
             </td>
             <td>
-                <input type="text" name="username"/>
+                <input type="text" name="username" id="username"/>
             </td>
         </tr>
         <tr>
@@ -21,7 +22,7 @@
                 <label>Name</label>
             </td>
             <td>
-                <input type="text" name="name"/>
+                <input type="text" name="name" id="name"/>
             </td>
         </tr>
         <tr>
@@ -29,7 +30,7 @@
                 <label>Fullname</label>
             </td>
             <td>
-                <input type="text" name="fullname"/>
+                <input type="text" name="fullname" id="fullname"/>
             </td>
         </tr>
         <tr>
@@ -37,12 +38,12 @@
                 <label>Password</label>
             </td>
             <td>
-                <input type="password" name="password"/>
+                <input type="password" name="password" id="password"/>
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <input type="submit" value="Register" />
+                <input type="submit" value="Register" id="register"/>
             </td>
         </tr>
     </table>
