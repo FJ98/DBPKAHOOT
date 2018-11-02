@@ -2,6 +2,7 @@ var current_sala_pin = 0;
 var current_sala_id = 0;
 var url_messages;
 
+
 $(document).ready(function() {
     $.getJSON("/current_sala",function(data){
     //alert.(data['username']);
@@ -11,10 +12,11 @@ $(document).ready(function() {
     $('#sala_name').html(data['name']);
     $('#sala_pin').html('PIN : '+data['pin']);
 
-    $.getJSON(url_messages,function(data_m){
+    var refreshId =  setInterval( function getMessages(){
+    $.getJSON(url_messages,function(data){
     var i =0;
     var e='';
-    $.each(data_m, function(){
+    $.each(data, function(){
         e = e + '<div class="incoming_msg"><div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>'
         e = e + '<div class="received_msg"><div class="received_withd_msg">'
         e = e + '<p>'+ data_m[i]['content']+'<p></div></div></div>'
@@ -22,7 +24,10 @@ $(document).ready(function() {
         $('#boxMessage').append(e);
     });
     });
-    setTimeout(getMessages, 3000);
+
+}, 2000 );
+
+
      });
 
     });

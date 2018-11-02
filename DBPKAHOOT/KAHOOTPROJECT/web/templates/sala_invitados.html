@@ -18,39 +18,12 @@
 
 <div class="messaging">
         <div class="mesgs">
-          <div class="msg_history">
-            <div class="incoming_msg">
-              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="received_msg">
-                <xdiv class="received_withd_msg">
-                  <p>Test which is a new approach to have all
-                    solutions</p>
-                </xdiv>
-              </div>
-            </div>
-            <div class="incoming_msg">
-              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="received_msg">
-                <div class="received_withd_msg">
-                  <p>Test, which is a new approach to have</p>
-                </div>
-              </div>
-            </div>
-            <div class="incoming_msg">
-              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="received_msg">
-                <div class="received_withd_msg">
-                  <p>We work directly with our designers and suppliers,
-                    and sell direct to you, which means quality, exclusive
-                    products, at a price anyone can afford.</p>
-                </div>
-              </div>
-            </div>
+          <div class="msg_history" id="boxMessage">
           </div>
           <div class="type_msg">
             <div class="input_msg_write">
-              <input type="text" class="write_msg" placeholder="Type a message" />
-              <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+              <input type="text" class="write_msg" id="txtMessage" placeholder="Type a message" />
+              <button class="msg_send_btn"  id="btnMessage" onclick="sendMessage()" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
             </div>
           </div>
         </div>
