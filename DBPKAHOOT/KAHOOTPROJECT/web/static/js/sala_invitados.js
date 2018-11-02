@@ -17,20 +17,20 @@ $(document).ready(function() {
     var i =0;
     var e='';
     $.each(data, function(){
+
         e = e + '<div class="incoming_msg"><div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>'
         e = e + '<div class="received_msg"><div class="received_withd_msg">'
-        e = e + '<p>'+ data_m[i]['content']+'<p></div></div></div>'
+        e = e + '<p>'+ data[i]['content']+'<p></div></div></div>'
         i = i+1;
-        $('#boxMessage').append(e);
+
     });
+    $('#boxMessage').html(e);
     });
 
 }, 2000 );
 
-
-     });
-
-    });
+ });
+ });
 
 $.getJSON(url_messages,function(data_m){
     var i =0;

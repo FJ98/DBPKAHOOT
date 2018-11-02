@@ -11,18 +11,22 @@ $(document).ready(function() {
     $('#sala_name').html(data['name']);
     $('#sala_pin').html('PIN : '+data['pin']);
 
-    $.getJSON(url_messages,function(data_m){
+    var refreshId =  setInterval( function getMessages(){
+    $.getJSON(url_messages,function(data){
     var i =0;
     var e='';
-    $.each(data_m, function(){
+    $.each(data, function(){
+
         e = e + '<div class="incoming_msg"><div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>'
         e = e + '<div class="received_msg"><div class="received_withd_msg">'
-        e = e + '<p>'+ data_m[i]['content']+'<p></div></div></div>'
+        e = e + '<p>'+ data[i]['content']+'<p></div></div></div>'
         i = i+1;
-        $('#boxMessage').append(e);
+
     });
+    $('#boxMessage').html(e);
     });
-    setTimeout(getMessages, 3000);
+}, 2000 );
+
      });
 
     });

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1a8a8a4-031a-48ab-88b4-0bfb35c74802" name="Default Changelist" comment="cambios 3">
+    <list default="true" id="f1a8a8a4-031a-48ab-88b4-0bfb35c74802" name="Default Changelist" comment="cambios 4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/midb.db" beforeDir="false" afterPath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/midb.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/static/js/sala.js" beforeDir="false" afterPath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/static/js/sala.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/static/js/sala_invitados.js" beforeDir="false" afterPath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/static/js/sala_invitados.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/sala_invitados.html" beforeDir="false" afterPath="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/sala_invitados.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -123,17 +124,17 @@
       <file leaf-file-name="sala_invitados.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/sala_invitados.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+            <state relative-caret-position="285">
+              <caret line="20" column="49" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sala.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sala.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/sala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+            <state relative-caret-position="260">
+              <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -141,17 +142,17 @@
       <file leaf-file-name="sala_invitados.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/static/js/sala_invitados.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="61" column="18" lean-forward="true" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="28" />
+            <state relative-caret-position="75">
+              <caret line="14" column="49" lean-forward="true" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sala.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sala.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/static/js/sala.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1500">
-              <caret line="75" selection-start-line="75" selection-end-line="75" />
+            <state relative-caret-position="725">
+              <caret line="29" column="3" lean-forward="true" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -219,16 +220,16 @@
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/static/css/sala.css" />
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/pin.html" />
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/success.html" />
-        <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/static/js/sala.js" />
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/index.html" />
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/login.html" />
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/register.html" />
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/model/entities.py" />
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/name_sala.html" />
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/server.py" />
+        <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/sala_invitados.html" />
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/sala.html" />
         <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/static/js/sala_invitados.js" />
-        <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/sala_invitados.html" />
+        <option value="$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/static/js/sala.js" />
       </list>
     </option>
   </component>
@@ -398,17 +399,23 @@
       <option name="project" value="LOCAL" />
       <updated>1541182516281</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="cambios 4">
+      <created>1541184277102</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1541184277103</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16983895" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16983895" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3290938" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3290938" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32979852" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -456,7 +463,8 @@
     <MESSAGE value="cambios" />
     <MESSAGE value="cambios 2" />
     <MESSAGE value="cambios 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="cambios 3" />
+    <MESSAGE value="cambios 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="cambios 4" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/server.py">
@@ -647,13 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/static/js/sala.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/model/entities.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
@@ -664,24 +665,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/static/js/sala_invitados.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="61" column="18" lean-forward="true" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/sala_invitados.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+        <state relative-caret-position="285">
+          <caret line="20" column="49" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/templates/sala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+        <state relative-caret-position="260">
+          <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/static/js/sala_invitados.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="14" column="49" lean-forward="true" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBPKAHOOT/KAHOOTPROJECT/web/static/js/sala.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="725">
+          <caret line="29" column="3" lean-forward="true" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
         </state>
       </provider>
     </entry>
