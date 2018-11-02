@@ -22,7 +22,7 @@ def index():
 @app.route('/sala_logout', methods=['GET'])
 def sala_logout():
     del session['current_created_sal']
-    return render_template('index.html')
+    return render_template('success.html')
 
 
 @app.route('/pin', methods=['GET'])
