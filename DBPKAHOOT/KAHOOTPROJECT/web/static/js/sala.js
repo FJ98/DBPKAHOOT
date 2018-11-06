@@ -11,6 +11,19 @@ $(document).ready(function() {
     $('#sala_name').html(data['name']);
     $('#sala_pin').html('PIN : '+data['pin']);
 
+    var input = document.getElementById("txtMessage");
+
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function(event) {
+  // Cancel the default action, if needed
+  event.preventDefault();
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Trigger the button element with a click
+    document.getElementById("btnMessage").click();
+  }
+});
+
     var refreshId =  setInterval( function getMessages(){
     $.getJSON(url_messages,function(data){
     var i =0;
@@ -57,6 +70,12 @@ function getMessages(){
     });
 
 }
+
+
+
+
+
+
 function sendMessage(){
     content = $('#txtMessage').val();
     e = '<div class="incoming_msg"><div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>'

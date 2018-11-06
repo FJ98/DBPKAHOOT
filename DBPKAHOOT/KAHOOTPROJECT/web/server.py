@@ -21,7 +21,7 @@ def index():
 
 @app.route('/sala_logout', methods=['GET'])
 def sala_logout():
-    del session['current_created_sal']
+    del session['created_sala_pin']
     return render_template('success.html')
 
 
@@ -62,9 +62,17 @@ def register():
 @app.route('/login', methods=['GET'])
 def login():
     if 'username' in session and 'password' in session:
-        return render_template('success.html')
+        if 'created_sala_pin' in session:
+            return render_template('sala.html')
+        else:
+            return render_template('name_sala.html')
     else:
         return render_template('login.html')
+
+@app.route('/do_logout')
+def do_logout():
+    session.clear()
+    return render_template('index.html')
 
 @app.route('/do_login', methods=['POST','GET'])
 def do_login():
@@ -78,20 +86,18 @@ def do_login():
         if user.username == username and user.password == password:
             session['username'] = username
             session['password'] = password
-            return render_template("success.html")
+            return render_template("name_sala.html")
 
     return render_template("fail.html")
 
 
 @app.route('/do_register', methods=['POST'])
 def do_register():
-    name = request.form['name']
-    fullname = request.form['fullname']
     password = request.form['password']
+    email = request.form['email']
     username = request.form['username']
-    user = entities.User(username=username,
-                         name=name,
-                         fullname=fullname,
+    user = entities.User(email=email,
+                         username=username,
                          password=password)
     db_session = db.getSession(engine)
     db_session.add(user)
@@ -121,6 +127,18 @@ def do_pin():
 # CRUD PARA SALAS
 # CREATE SALA
 # CREATE SLA
+@app.route('/sala', methods=['DELETE'])
+def delete_sala():
+    db_session = db.getSession(engine)
+    salas = db_session.query(entities.Sala)
+    for sala in salas:
+        db_session.delete(sala)
+    db_session.commit()
+    return "salas deleted!"
+
+
+
+
 @app.route('/sala', methods=['POST'])
 def create_sala():
     name = request.form['name']
@@ -155,16 +173,6 @@ def read_sala():
 # FIN
 
 
-# DELETE SALA
-@app.route('/salas/<id>', methods=['DELETE'])
-def delete_sala(id):
-    db_session = db.getSession(engine)
-    salas = db_session.query(entities.Sala).filter(entities.Sala.id == id)
-    for sala in salas:
-        db_session.delete(sala)
-    db_session.commit()
-    return "sala deleted"
-# FIN
 
 
 
@@ -176,7 +184,7 @@ def set_contador():
     db_session.add(numero)
     db_session.commit()
     return "TODO OK"
-    return "TODO OK"
+
 
 
 # CRUD USERS
