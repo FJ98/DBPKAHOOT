@@ -176,6 +176,7 @@ def set_contador():
     db_session.add(numero)
     db_session.commit()
     return "TODO OK"
+    return "TODO OK"
 
 
 # CRUD USERS
@@ -275,6 +276,19 @@ def read_message():
                                cls=connector.AlchemyEncoder),
                     mimetype='application/json')
 # FIN
+
+@app.route('/contador')
+def get_contador():
+    db_session = db.getSession(engine)
+    numeros = db_session.query(entities.Contador)
+    data = []
+    for numero in numeros:
+        data.append(numero)
+    db_session.commit()  # Es para cerrar la orden y decirle a la bdd que lo haga
+    return Response(json.dumps(data,
+                               cls=connector.AlchemyEncoder),
+                    mimetype='application/json')
+
 
 
 # READ MESSAGE METHOD

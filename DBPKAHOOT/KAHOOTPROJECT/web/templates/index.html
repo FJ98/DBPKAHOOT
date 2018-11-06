@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>W3.CSS Template</title>
+<title>Ask-I</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/static/css/index.css">
@@ -15,8 +15,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <body>
 
 <!-- Header -->
-<header class="w3-container w3-white w3-center" style="padding:128px 16px">
-</header>
+
 
 
 <!-- First Grid -->
@@ -27,11 +26,15 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <div class="w3-twothird">
       <h1>START A TALK</h1>
       <h5 class="w3-padding-32">By starting a talk, you play the role of the enhancer: Pick a topic and start a conversation!</h5>
-      <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Sign up</button>
-      <button  class="w3-button w3-black w3-padding-large w3-large w3-margin-top" >Create a chatroom</button>
+      <form action="/register" method="get">
+          <button type="submit" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Sign up</button>
+
+      </form>
+
+
      
-     <form>
-        <input type="button" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" value="Create a chatroom" href='http://www.hyperlinkcode.com/button-links.php'/>
+     <form action="/login" method="get">
+        <input type="submit" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" value="Sign In" href='http://www.hyperlinkcode.com/button-links.php'/>
 </form>
 
 
@@ -39,7 +42,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     </div>
 
     <div class="w3-third w3-center">
-  <img src="https://lh3.googleusercontent.com/N-9AowQ8TFEpIhDhkqQs67bf9ezR1ez_5Qwk-Jv6ZG2pma6_h71L_lrHXn7igvIrWP8OWQ=s92" alt="img1" style="width:80%" class="w3-circle w3-hover-opacity">
+  <img src="https://lh3.googleusercontent.com/N-9AowQ8TFEpIhDhkqQs67bf9ezR1ez_5Qwk-Jv6ZG2pma6_h71L_lrHXn7igvIrWP8OWQ=s92" alt="img1" style="width:80%" class="w3-circle">
     </div>
   </div>
 </div>
@@ -54,8 +57,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <div class="w3-twothird">
       <h1>Ask</h1>
       <h5 class="w3-padding-32">Any questions? Now you are able to ask any inquiry you have. </h5>
+    <form action="/pin" method="get">
+      <button type="submit" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Join a chatroom</button>
+    </form>
 
-      <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Join a chatroom</button>
     </div>
   </div>
 </div>
